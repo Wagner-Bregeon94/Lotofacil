@@ -1,0 +1,47 @@
+.page-header {
+    text-align: center;
+    background-color: rgb(228, 52, 228);
+}
+
+.container-fluid {
+    background-color: rgb(228, 52, 228);
+} 
+
+.carousel-item {
+    height: 500px;
+}
+
+.a-carousel{
+    background-color: white;
+    color: black;
+}
+
+.p-carousel {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.div-footer {
+    background-color:  rgb(228, 52, 228);
+}
+
+p.blockquote-footer {
+    color: #ffffff;
+}
+
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.links-container a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 3px solid #ccc;
+}
+
+
+

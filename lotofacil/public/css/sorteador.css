@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom:8px;
+    justify-content: center;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.highlighted {
+    background-color: yellow;
+}
+
+.div-sorteador {
+    display: flex;
+    justify-content: center;
+}
