@@ -1,4 +1,9 @@
-@include('layout/header')
+@include('..layout/header')
+
+<div class="page-header">
+  <h2>Fazer cadastro</h2>
+</div>
+
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="card col-sm m-5">
@@ -30,4 +35,4 @@
     </div>
   </div>
 </div>
-@include('layout/footer')
+@include('..layout/footer')

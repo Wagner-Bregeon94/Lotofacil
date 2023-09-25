@@ -1,4 +1,9 @@
-@include('layout/header')
+@include('..layout/header')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
+<div class="page-header">
+  <h2>Entrar com a minha conta</h2>
+</div>
 
 <div class="container">
   <div class="row justify-content-md-center">
@@ -24,4 +29,4 @@
   </div>
 </div>
 
-@include('layout/footer')
+@include('..layout/footer')

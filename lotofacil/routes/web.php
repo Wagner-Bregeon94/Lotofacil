@@ -30,6 +30,10 @@ Route::get('/apostas', [
     ApostasController::class, 'apostas'
 ])->name('apostas.apostas');
 
+Route::post('/apostas/salvar', [
+    ApostasController::class, 'salvarAposta'
+])->name('apostas.salvar');
+
 Route::post('/register', [
     RegisterController::class, 'register'
 ])->name('auth.register');

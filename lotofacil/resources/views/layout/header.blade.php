@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Lotofácil</title>
 
-    @yield('css')
-
 </head>
 <!--Início barra de navegação-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -34,31 +32,33 @@
                 </li>
 
                 <!--Início modal barra de navegação-->
-                <li class="nav-item">
-                    <a class="nav-link" href="apostas" data-bs-toggle="modal" data-bs-target="#myModal">Minhas apostas</a>
-                    <div class="modal" tabindex="-1" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Minhas apostas</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Lembre-se de que nesse site suas apostas não tem validação oficial. Essa área é apenas para você manter seus palpites salvos. </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-primary" id="prosseguirBtn">Prosseguir</button>
-                                    <script>
-                                        document.getElementById('prosseguirBtn').addEventListener('click', function() {
-                                            window.location.href = 'apostas';
-                                        });
-                                    </script>
-                                </div>
+                @if (auth()->check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="apostas">Minhas apostas</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Minhas apostas</a>
+                    </li>
+                @endif
+                <div class="modal" tabindex="-1" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Minhas apostas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Essa área é apenas para pessoas que já possuem cadastro.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="login">Entrar com a minha conta.</a>
+                                <a href="register">Fazer Cadastro.</a>
                             </div>
                         </div>
                     </div>
-                </li>
+                </div>
+                
                 <!--Fim modal barra de navegação-->
 
                 <li class="nav-item dropdown">
@@ -73,7 +73,7 @@
                             </form>
                         </ul>
                     @else
-                        <a class="nav-link dropdown-toggle" href="login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Login
                         </a>
                         <ul class="dropdown-menu">

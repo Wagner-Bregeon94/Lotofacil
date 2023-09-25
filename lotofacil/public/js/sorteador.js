@@ -1,11 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() 
-{
+document.addEventListener("DOMContentLoaded", function() {
     const totalNumbers = 25;
     const numbersPerRow = 5;
     let totalNumbersToDraw = 15;
 
-    function generateAllNumbers() 
-    {
+    function generateAllNumbers() {
         const allNumbers = [];
         for (let i = 1; i <= totalNumbers; i++) 
         {
@@ -14,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function()
         return allNumbers;
     }
 
-    function generateRandomNumbers() 
-    {
+    function generateRandomNumbers() {
         const allNumbers = generateAllNumbers();
         const drawnNumbers = [];
 
@@ -29,19 +26,16 @@ document.addEventListener("DOMContentLoaded", function()
         return drawnNumbers;
     }
 
-    function createRow(numbers, highlightedNumbers) 
-    {
+    function createRow(numbers, highlightedNumbers) {
         const row = document.createElement("div");
         row.className = "row";
 
-        numbers.forEach((number) => 
-        {
+        numbers.forEach((number) => {
             const numberElement = document.createElement("div");
             numberElement.className = "number";
             numberElement.textContent = number;
 
-            if (highlightedNumbers.includes(number)) 
-            {
+            if (highlightedNumbers.includes(number)) {
                 numberElement.classList.add("highlighted");
             }
 
@@ -51,14 +45,12 @@ document.addEventListener("DOMContentLoaded", function()
         return row;
     }
 
-    function generateSorteador() 
-    {
+    function generateSorteador() {
         const sortedNumbers = generateAllNumbers();
         const drawnNumbers = generateRandomNumbers();
         let start = 0;
-
-        while (start < sortedNumbers.length) 
-        {
+        
+        while (start < sortedNumbers.length) {
             const rowNumbers = sortedNumbers.slice(start, start + numbersPerRow);
             const row = createRow(rowNumbers, drawnNumbers);
             sorteadorElement.appendChild(row);
@@ -67,24 +59,73 @@ document.addEventListener("DOMContentLoaded", function()
         }
     }
 
-    function renderOddAndEvenNumbers(numbers) 
-    {
+    function renderOddAndEvenNumbers(numbers) {
         const oddNumbersCount = numbers.filter((number) => number % 2 !== 0).length;
         const evenNumbersCount = numbers.filter((number) => number % 2 === 0).length;
+        const primeNumbersCount = countPrimeNumbers(numbers);
+        const sumOfNumbers = calculateSumOfNumbers(numbers);
 
         const oddNumbersElement = document.getElementById("oddNumbers");
         const evenNumbersElement = document.getElementById("evenNumbers");
+        const primeNumbersElement = document.getElementById("primeNumbers");
+        const sumOfNumbersElement = document.getElementById("sumOfNumbers");
 
-        oddNumbersElement.textContent = `Ímpares: ${oddNumbersCount}`;
-        evenNumbersElement.textContent = `Pares: ${evenNumbersCount}`;
+        oddNumbersElement.textContent = `${oddNumbersCount}`;
+        evenNumbersElement.textContent = `${evenNumbersCount}`;
+        primeNumbersElement.textContent = `${primeNumbersCount}`;
+        sumOfNumbersElement.textContent = `${sumOfNumbers}`;
+
+        const somaInput = document.getElementById("somaInput");
+        const imparesInput = document.getElementById("imparesInput");
+        const paresInput = document.getElementById("paresInput");
+        const primosInput = document.getElementById("primosInput");
+
+        somaInput.value = sumOfNumbers;
+        imparesInput.value = oddNumbersCount;
+        paresInput.value = evenNumbersCount;
+        primosInput.value = primeNumbersCount;
     }
+   
+    // Chamada inicial para renderizar os números ímpares e pares
+    renderOddAndEvenNumbers(generateRandomNumbers());
+
+    function renderDrawnNumbers(numbers) {
+        const drawnNumbersElement = document.getElementById("drawnNumbers");
+        drawnNumbersElement.textContent = numbers.join(" - "); // Converte o array de números em uma string separada por vírgulas
+    }
+    
+    // Chamada inicial para renderizar os números sorteados
+    renderDrawnNumbers(generateRandomNumbers());
+    
+
+    function isPrime(number) {
+        if (number <= 1) return false; // 0 e 1 não são primos
+        if (number <= 3) return true; // 2 e 3 são primos
+    
+        if (number % 2 === 0 || number % 3 === 0) return false; // Divisíveis por 2 ou 3 não são primos
+    
+        for (let i = 5; i * i <= number; i += 6) {
+            if (number % i === 0 || number % (i + 2) === 0) return false;
+        }
+    
+        return true;
+    }
+    
+    function countPrimeNumbers(numbers) {
+        return numbers.filter((number) => isPrime(number)).length;
+    }
+    
+
+    function calculateSumOfNumbers(numbers) {
+        return numbers.reduce((accumulator, currentNumber) => accumulator + currentNumber, 0);
+    }
+    
 
     const sorteadorElement = document.getElementById("sorteador");
     generateSorteador();
 
     const selectSorteio = document.getElementById("selectSorteio");
-    selectSorteio.addEventListener("change", function() 
-    {
+    selectSorteio.addEventListener("change", function() {
         totalNumbersToDraw = parseInt(selectSorteio.value);
         // Remove todos os números existentes
         sorteadorElement.innerHTML = "";
@@ -92,30 +133,36 @@ document.addEventListener("DOMContentLoaded", function()
         generateSorteador();
     });
     
+    document.getElementById("showDraw").innerHTML = `Os Números Sorteados Foram:`;
+
     const updateButton = document.getElementById("updateButton");
-    updateButton.addEventListener("click", function() 
-    {
+
+    updateButton.addEventListener("click", function() {
         // Remove todos os números existentes
         sorteadorElement.innerHTML = "";
         // Gera novos números e atualiza a exibição
         generateSorteador();
 
+        // Chama a função para gerar e ordenar os novos números sorteados
+        const newDrawnNumbers = generateRandomNumbers().sort((a, b) => a - b);
+        
+        // Chama a função para renderizar os números sorteados em ordem crescente
+        renderDrawnNumbers(newDrawnNumbers);
+        
         // Chama a função para renderizar os números ímpares e pares com os novos números sorteados
-        renderOddAndEvenNumbers(generateRandomNumbers());
+        renderOddAndEvenNumbers(newDrawnNumbers);
+
+        const numerosSorteadosInput = document.getElementById("numerosSorteadosInput");
+
+        numerosSorteadosInput.value = JSON.stringify(newDrawnNumbers);
     });
+
 
     const saveButton = document.getElementById("saveButton");
-    saveButton.addEventListener("click", function()
-    {
-        const selectedNumbers = generateRandomNumbers(); // Utiliza a mesma lógica de seleção aleatória
+    const apostaForm = document.getElementById("apostaForm");
 
-        // Armazena os números selecionados (pode ser em localStorage, um banco de dados, etc.)
-        localStorage.setItem("apostas", JSON.stringify(selectedNumbers)); // Exemplo usando localStorage
-
-        // Redireciona para a página "Minhas Apostas"
-        window.location.href = "apostas";
+    saveButton.addEventListener("click", function() {
+        // Envie o formulário para o servidor
+        apostaForm.submit();
     });
-
-    // Chamada inicial para renderizar os números ímpares e pares
-    renderOddAndEvenNumbers(generateRandomNumbers());
 });

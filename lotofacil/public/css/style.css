@@ -3,6 +3,14 @@
     background-color: rgb(228, 52, 228);
 }
 
+div.modal-header{
+    background-color: rgb(228, 52, 228);
+}
+
+div.modal-footer{
+    gap: 165px;
+}
+
 .container-fluid {
     background-color: rgb(228, 52, 228);
 } 
@@ -42,6 +50,3 @@ p.blockquote-footer {
     background-color: #f0f0f0;
     border: 3px solid #ccc;
 }
-
-
-

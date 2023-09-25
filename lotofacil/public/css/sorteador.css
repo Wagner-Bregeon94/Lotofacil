@@ -1,8 +1,30 @@
+.page-body{
+    background-image: url('../images/sorteador.jpg');
+    background-color: #f0f0f0; /* Cor de fundo de fallback */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em uma coluna */
+    align-items: center; /* Centraliza horizontalmente os elementos */
+    text-align: center; /* Centraliza o texto */
+}
+
+.select-options{
+    display: flex;
+    justify-content: center; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+    width: 660px;
+    margin: auto;
+    background-color: rgb(228, 52, 228);
+}
+
 .row {
     display: flex;
     justify-content: center;
-    margin-bottom:8px;
-    justify-content: center;
+    margin-bottom:16px;
 }
 
 .number {
@@ -21,7 +43,41 @@
     background-color: yellow;
 }
 
-.div-sorteador {
+.side-by-side {
+    display: flex;
+    justify-content: space-between; /* Coloca as duas divs lado a lado */
+}
+
+div.table-sorteador,
+div.table-results {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 320px;
+    height: 320px; /* Certifique-se de que ambas as divs tenham a mesma altura */
+    margin: 10px; /* Adicione margem entre as divs */
+    background-color: white;
+}
+
+.drawnNumbers{
+    
+}
+
+div.buttons {
     display: flex;
     justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+    width: 660px;
+    margin: auto;
+    background-color: rgb(228, 52, 228);
+    gap: 210px;
 }
+
+tr.title{
+    background-color:rgb(226, 225, 225);
+    height: 30px;
+}
+
+

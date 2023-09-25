@@ -36,29 +36,11 @@
                 <img src="{{ asset('images/aposta.jpg') }}" class="d-block w-100" alt="Apostas">
                 <div class="carousel-caption d-none d-md-block">
                     <!--Início modal carousel-->
-                    <h5><a class="a-carousel" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Minhas apostas</a></h5>
-                    <div class="modal" tabindex="-1" id="myModal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Minhas apostas</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Lembre-se de que nesse site suas apostas não tem validação oficial. Essa área é apenas para você manter seus palpites salvos. </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="button" class="btn btn-primary" id="prosseguirBtn">Prosseguir</button>
-                                    <script>
-                                        document.getElementById('prosseguirBtn').addEventListener('click', function() {
-                                            window.location.href = 'apostas';
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @if (auth()->check())
+                        <h5><a class="a-carousel" href="apostas">Minhas apostas</a></h5>
+                    @else
+                        <h5><a class="a-carousel" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Minhas apostas</a></h5>
+                    @endif
                     <!--Fim modal carousel-->
                     <p class="p-carousel">Deixe salvo seus palpites para futuras apostas, ou apenas para acompanhar como anda a sua sorte.</p>
                 </div>
