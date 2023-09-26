@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Sorteador;
 
-class SorteadorController {
+use App\Http\Controllers\Controller;
+
+class SorteadorController extends Controller {
 
     public function sorteador() 
     {

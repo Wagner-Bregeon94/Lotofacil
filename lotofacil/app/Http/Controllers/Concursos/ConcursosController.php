@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Concursos;
 
-class ConcursosController {
-    
-    public function concursos() 
-    {
+use App\Http\Controllers\Controller;
+
+class ConcursosController extends Controller{
+    public function concursos() {
         return view('concursos.concursos');
     }
 }

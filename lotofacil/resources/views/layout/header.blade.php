@@ -67,10 +67,14 @@
                             Bem-vindo, {{ Auth::user()->name }} !
                         </a>
                         <ul class="dropdown-menu">
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="dropdown-item">Sair</button>
-                            </form>
+                            <li><a href="show" class="dropdown-item">Meu Perfil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Sair</button>
+                                </form>
+                            </li>
                         </ul>
                     @else
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

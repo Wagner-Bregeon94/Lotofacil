@@ -2,11 +2,12 @@
 
 namespace  App\Http\Controllers\Apostas;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ApostasModel;
 use Illuminate\Support\Facades\Auth;
 
-class ApostasController{
+class ApostasController extends Controller{
 
     public function salvarAposta(Request $request) {
         // Obtenha os dados da aposta do formulário
