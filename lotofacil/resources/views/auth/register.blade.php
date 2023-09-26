@@ -1,4 +1,5 @@
 @include('..layout/header')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
 <div class="page-header">
   <h2>Fazer cadastro</h2>
