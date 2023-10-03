@@ -170,8 +170,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const saveButton = document.getElementById("saveButton");
     const apostaForm = document.getElementById("apostaForm");
 
-    saveButton.addEventListener("click", function() {
-        // Envie o formulário para o servidor
-        apostaForm.submit();
+    saveButton.addEventListener("click", function(event) {
+        if (!isAuthenticated) {
+            event.preventDefault(); // Impede o envio do formulário
+            alert("É necessário fazer login para salvar a aposta.");
+        } else {
+            // Se o usuário estiver autenticado, envie o formulário para o servidor
+            apostaForm.submit();
+        }
     });
 });

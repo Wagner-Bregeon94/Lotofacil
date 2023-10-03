@@ -81,6 +81,9 @@
   </div>
 </div>
 <script src="{{ asset('js/sorteador.js') }}"></script>
+<script>
+  const isAuthenticated = {{ auth()->check() ? 'true' : 'false' }};
+</script>
 @include('../layout/footer')
 
   
