@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('apostas', function (Blueprint $table) {
             $table->id();
-            $table->index('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('numeros_sorteados');
             $table->integer('soma');
             $table->integer('impares');

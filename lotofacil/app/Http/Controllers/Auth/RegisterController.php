@@ -18,6 +18,7 @@ class RegisterController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
+            'surname' => 'required',
             'data_nascimento' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
@@ -25,6 +26,7 @@ class RegisterController extends Controller
         
         $user = User::create([
             'name' => $validatedData['name'],
+            'surname' => $validatedData['surname'],
             'data_nascimento' => $validatedData['data_nascimento'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),

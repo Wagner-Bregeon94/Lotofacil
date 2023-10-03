@@ -125,15 +125,21 @@ document.addEventListener("DOMContentLoaded", function() {
     generateSorteador();
 
     const selectSorteio = document.getElementById("selectSorteio");
+    const showDrawElement = document.getElementById("showDraw");
+
+    showDrawElement.innerHTML = `Os ${totalNumbersToDraw} Números Sorteados Foram:`;
+
     selectSorteio.addEventListener("change", function() {
         totalNumbersToDraw = parseInt(selectSorteio.value);
         // Remove todos os números existentes
         sorteadorElement.innerHTML = "";
         // Gera novos números e atualiza a exibição
         generateSorteador();
+
+        showDrawElement.innerHTML = `Os ${totalNumbersToDraw} Números Sorteados Foram:`;
     });
     
-    document.getElementById("showDraw").innerHTML = `Os Números Sorteados Foram:`;
+    
 
     const updateButton = document.getElementById("updateButton");
 

@@ -16,20 +16,24 @@
         </div>
         @endif
         <div class="form-group">
-          <label for="exampleInputNome">Nome completo</label>
+          <label for="exampleInputNome">Nome</label>
           <input type="text" class="form-control" id="exampleInputNome" placeholder="Digite seu nome" name="name">
         </div>
         <div class="form-group">
-          <label for="exampleInputDataNascimento">Data de Nascimento</label>
+          <label for="exampleInputNome">Sobrenome</label>
+          <input type="text" class="form-control" id="exampleInputSobrenome" placeholder="Digite seu sobrenome" name="surname">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputDataNascimento">Data de nascimento</label>
           <input type="date" class="form-control" id="exampleInputDataNascimento" name="data_nascimento">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Endereço de Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu Email" name="email">
+          <label for="exampleInputEmail1">Endereço de email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email" name="email">
         </div>
         <div class="form-group">
           <label for="exampleInputSenha">Senha</label>
-          <input type="password" class="form-control" id="exampleInputSenha" placeholder="Digite sua Senha" name="password">
+          <input type="password" class="form-control" id="exampleInputSenha" placeholder="Digite sua senha" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
