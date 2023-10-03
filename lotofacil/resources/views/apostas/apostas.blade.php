@@ -11,9 +11,10 @@
           <tr>
             <th scope="col">Nº</th>
             <th scope="col">Números Sorteados</th>
-            <th scope="col">Números Impares</th>
-            <th scope="col">Números Pares</th>
-            <th scope="col">Números Primos</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Impares</th>
+            <th scope="col">Pares</th>
+            <th scope="col">Primos</th>
             <th scope="col">Soma dos Números</th>
           </tr>
         </thead>
@@ -22,6 +23,7 @@
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $aposta->numeros_sorteados }}</td>
+              <td>{{ $aposta->quantidade }}</td>
               <td>{{ $aposta->impares }}</td>
               <td>{{ $aposta->pares }}</td>
               <td>{{ $aposta->primos }}</td>

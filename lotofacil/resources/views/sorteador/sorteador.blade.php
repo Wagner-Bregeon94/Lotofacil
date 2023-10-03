@@ -71,6 +71,7 @@
     <form id="apostaForm" action="{{ route('apostas.salvar') }}" method="POST">
       @csrf
       <input type="hidden" id="numerosSorteadosInput" name="numeros_sorteados" value="">
+      <input type="hidden" id="quantidadeInput" name="quantidade" value="">
       <input type="hidden" id="somaInput" name="soma" value="">
       <input type="hidden" id="imparesInput" name="impares" value="">
       <input type="hidden" id="paresInput" name="pares" value="">

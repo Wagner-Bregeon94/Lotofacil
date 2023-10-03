@@ -12,6 +12,7 @@ class ApostasController extends Controller{
     public function salvarAposta(Request $request) {
         // Obtenha os dados da aposta do formulário
         $numerosSorteados = $request->input('numeros_sorteados');
+        $quantidade = $request->input('quantidade');
         $soma = $request->input('soma');
         $impares = $request->input('impares');
         $pares = $request->input('pares');
@@ -22,6 +23,7 @@ class ApostasController extends Controller{
         // Crie uma nova instância do modelo de apostas e atribua os valores
         $aposta = new ApostasModel();
         $aposta->numeros_sorteados = $numerosSorteados;
+        $aposta->quantidade = $quantidade;
         $aposta->soma = $soma;
         $aposta->impares = $impares;
         $aposta->pares = $pares;
@@ -38,6 +40,7 @@ class ApostasController extends Controller{
         $apostas = ApostasModel::all(); 
         
         $numerosSorteados = $request->input('numeros_sorteados');
+        $quantidade = $request->input('quantidade');
         $soma = $request->input('soma');
         $impares = $request->input('impares');
         $pares = $request->input('pares');
@@ -46,6 +49,7 @@ class ApostasController extends Controller{
         return view('apostas.apostas', [
             'apostas' => $apostas,
             'numeros_sorteados' => $numerosSorteados,
+            'quantidade' => $quantidade,
             'soma' => $soma,
             'impares' => $impares,
             'pares' => $pares,

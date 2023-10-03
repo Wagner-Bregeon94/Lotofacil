@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function renderDrawnNumbers(numbers) {
         const drawnNumbersElement = document.getElementById("drawnNumbers");
-        drawnNumbersElement.textContent = numbers.join(" - "); // Converte o array de números em uma string separada por vírgulas
+        drawnNumbersElement.textContent = numbers.join(" - "); // Converte o array de números em uma string separada por -
     }
     
     // Chamada inicial para renderizar os números sorteados
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const selectSorteio = document.getElementById("selectSorteio");
     const showDrawElement = document.getElementById("showDraw");
-
+    
     showDrawElement.innerHTML = `Os ${totalNumbersToDraw} Números Sorteados Foram:`;
 
     selectSorteio.addEventListener("change", function() {
@@ -136,11 +136,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // Gera novos números e atualiza a exibição
         generateSorteador();
 
+        const quantidadeInput = document.getElementById("quantidadeInput");
+
+        quantidadeInput.value = JSON.stringify(totalNumbersToDraw);
+
         showDrawElement.innerHTML = `Os ${totalNumbersToDraw} Números Sorteados Foram:`;
+        
     });
     
-    
-
     const updateButton = document.getElementById("updateButton");
 
     updateButton.addEventListener("click", function() {
