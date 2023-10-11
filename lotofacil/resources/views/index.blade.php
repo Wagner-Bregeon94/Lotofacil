@@ -1,8 +1,6 @@
 @include('layout/header')
 <div>
     <!--Início carousel-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -14,21 +12,21 @@
             <div class="carousel-item active">
                 <img src="{{ asset('images/lotofacil.jpg') }}" class="d-block w-100" alt="Concursos">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5><a class="a-carousel" href="concursos">Concursos</a></h5>
+                    <h5><a class="a-carousel" href="{{ route('concursos') }}">Concursos</a></h5>
                     <p class="p-carousel">Veja o histórico de todos os concuros.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('images/estatisticas.jpg') }}" class="d-block w-100" alt="Estatísticas">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5><a class="a-carousel" href="estatisticas">Estatísticas</a></h5>
+                    <h5><a class="a-carousel" href="{{ route('estatisticas') }}">Estatísticas</a></h5>
                     <p class="p-carousel">Aqui você tem informação sobre diversas estatísticas.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('images/sorteador.jpg') }}" class="d-block w-100" alt="Sorteador">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5><a class="a-carousel" href="sorteador">Sorteador de números</a></h5>
+                    <h5><a class="a-carousel" href="{{ route('sorteador') }}">Sorteador de números</a></h5>
                     <p class="p-carousel">Acha que não tem bons palpites? Talvez o algorítmo possa te ajudar!</p>
                 </div>
             </div>
@@ -37,7 +35,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <!--Início modal carousel-->
                     @if (auth()->check())
-                        <h5><a class="a-carousel" href="apostas">Minhas apostas</a></h5>
+                        <h5><a class="a-carousel" href="{{ route('apostas') }}">Minhas apostas</a></h5>
                     @else
                         <h5><a class="a-carousel" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Minhas apostas</a></h5>
                     @endif

@@ -1,7 +1,6 @@
 @include('../layout/header')
 <link rel="stylesheet" href="{{ asset('css/apostas.css') }}">
 
-
 <div class="page-header">
     <h2>Minhas Apostas</h2>
 </div>

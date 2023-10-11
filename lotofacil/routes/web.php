@@ -18,19 +18,19 @@ Route::get('/', [
 
 Route::get('/concursos', [
     ConcursosController::class, 'concursos'
-])->name('concursos.concursos');
+])->name('concursos');
 
 Route::get('/estatisticas', [
     EstatisticasController::class, 'estatisticas'
-])->name('estatisticas.estatisticas');
+])->name('estatisticas');
 
 Route::get('/sorteador', [
     SorteadorController::class, 'sorteador'
-])->name('sorteador.sorteador');
+])->name('sorteador');
 
 Route::get('/apostas', [
     ApostasController::class, 'apostas'
-])->name('apostas.apostas');
+])->name('apostas');
 
 Route::post('/apostas/salvar', [
     ApostasController::class, 'salvarAposta'
@@ -59,3 +59,7 @@ Route::post('/logout', [
 Route::get('/show', [
     ShowController::class, 'show'
 ])->name('show');
+
+Route::get('/show/edit', [
+    ShowController::class, 'edit'
+])->name('show.edit');

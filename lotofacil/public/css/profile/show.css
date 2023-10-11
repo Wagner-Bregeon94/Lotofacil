@@ -1,0 +1,15 @@
+div.card{
+    background-color:rgb(226, 225, 225);
+}
+
+.form-control{
+    margin-top: 15px;
+}
+
+div.teste{
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    margin: auto;
+    gap: 350px;
+}

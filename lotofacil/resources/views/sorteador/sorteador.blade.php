@@ -27,36 +27,28 @@
         <tr>
             <td class="drawnNumbers" id="drawnNumbers"></td>
         </tr>
-      </table>
-
-      <table>
+  
         <tr class="title">
             <th>Soma dos Números:</th>
         </tr>
         <tr>
             <td id="sumOfNumbers"></td>
         </tr>
-      </table>
-
-      <table>
+      
         <tr class="title">
           <th>Números Ímpares:</th>
         </tr>
         <tr>
           <td id="oddNumbers"></td>
         </tr>
-      </table>
-
-      <table>
+      
         <tr class="title">
           <th>Números Pares:</th>
         </tr>
         <tr>
           <td id="evenNumbers"></td>
         </tr>
-      </table>
-
-      <table>
+      
         <tr class="title">
           <th>Números Primos:</th>
         </tr>

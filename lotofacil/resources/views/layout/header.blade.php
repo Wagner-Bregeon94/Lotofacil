@@ -15,26 +15,26 @@
 <!--Início barra de navegação-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="fas fa-home"></i> Início</a>
+        <a class="navbar-brand" href="{{ route('index') }}"><i class="fas fa-home"></i> Início</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="concursos">Concursos</a>
+                    <a class="nav-link" href="{{ route('concursos') }}">Concursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="estatisticas">Estatísticas</a>
+                    <a class="nav-link" href="{{ route('estatisticas') }}">Estatísticas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sorteador">Sorteador de números</a>
+                    <a class="nav-link" href="{{ route('sorteador') }}">Sorteador de números</a>
                 </li>
 
                 <!--Início modal barra de navegação-->
                 @if (auth()->check())
                     <li class="nav-item">
-                        <a class="nav-link" href="apostas">Minhas apostas</a>
+                        <a class="nav-link" href="{{ route('apostas') }}">Minhas apostas</a>
                     </li>
                 @else
                     <li class="nav-item">
@@ -52,8 +52,8 @@
                                 <p>Essa área é apenas para pessoas que já possuem cadastro.</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="login">Entrar com a minha conta.</a>
-                                <a href="register">Fazer Cadastro.</a>
+                                <a href="{{ route('login') }}">Entrar com a minha conta.</a>
+                                <a href="{{ route('register') }}">Fazer Cadastro.</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             Bem-vindo, {{ Auth::user()->name }} !
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="show" class="dropdown-item">Meu Perfil</a></li>
+                            <li><a href="{{ route('show') }}" class="dropdown-item">Minha Conta</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
@@ -102,5 +102,6 @@
     </div>
 </nav>
 <script src="{{ asset('js/script.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <!--Fim barra de navegação-->
 <body>

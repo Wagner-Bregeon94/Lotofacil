@@ -31,13 +31,14 @@ class ApostasController extends Controller{
         $aposta->user_id = Auth::user()->id;
         // Salve a aposta no banco de dados
         $aposta->save();
-
+        
         // Redirecione de volta para a página de apostas
-        return redirect()->route('apostas.apostas');
+        return redirect()->route('apostas');
     }
 
     public function apostas(Request $request) {
-        $apostas = ApostasModel::all(); 
+        $user = Auth::user();
+        $apostas = ApostasModel::where('user_id', $user->id)->get(); 
         
         $numerosSorteados = $request->input('numeros_sorteados');
         $quantidade = $request->input('quantidade');

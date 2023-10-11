@@ -1,5 +1,5 @@
 @include('..layout/header')
-<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
 
 <div class="page-header">
   <h2>Entrar com a minha conta</h2>

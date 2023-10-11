@@ -1,5 +1,5 @@
 @include('..layout/header')
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/auth/register.css') }}">
 
 <div class="page-header">
   <h2>Fazer cadastro</h2>
@@ -20,7 +20,7 @@
           <input type="text" class="form-control" id="exampleInputNome" placeholder="Digite seu nome" name="name">
         </div>
         <div class="form-group">
-          <label for="exampleInputNome">Sobrenome</label>
+          <label for="exampleInputSobrenome">Sobrenome</label>
           <input type="text" class="form-control" id="exampleInputSobrenome" placeholder="Digite seu sobrenome" name="surname">
         </div>
         <div class="form-group">

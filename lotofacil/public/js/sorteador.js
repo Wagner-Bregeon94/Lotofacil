@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function() {
         numerosSorteadosInput.value = JSON.stringify(newDrawnNumbers);
     });
 
-
     const saveButton = document.getElementById("saveButton");
     const apostaForm = document.getElementById("apostaForm");
 
