@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const evenNumbersElement = document.getElementById("evenNumbers");
         const primeNumbersElement = document.getElementById("primeNumbers");
         const sumOfNumbersElement = document.getElementById("sumOfNumbers");
+        
 
         oddNumbersElement.textContent = `${oddNumbersCount}`;
         evenNumbersElement.textContent = `${evenNumbersCount}`;
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         imparesInput.value = oddNumbersCount;
         paresInput.value = evenNumbersCount;
         primosInput.value = primeNumbersCount;
+        
     }
    
     // Chamada inicial para renderizar os números ímpares e pares

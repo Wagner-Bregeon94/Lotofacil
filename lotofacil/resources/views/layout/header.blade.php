@@ -67,7 +67,7 @@
                             Bem-vindo, {{ Auth::user()->name }} !
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('show') }}" class="dropdown-item">Minha Conta</a></li>
+                            <li><a href="{{ route('profile.show') }}" class="dropdown-item">Minha Conta</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">
@@ -101,7 +101,8 @@
         </div>
     </div>
 </nav>
+<!--Fim barra de navegação-->
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<!--Fim barra de navegação-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>

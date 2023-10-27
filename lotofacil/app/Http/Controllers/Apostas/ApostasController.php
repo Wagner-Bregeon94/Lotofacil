@@ -57,4 +57,23 @@ class ApostasController extends Controller{
             'primos' => $primos,
         ]);
     }
+
+    public function deleteSelected(Request $request) {
+        $selectedApostas = $request->input('selectedApostas');
+
+        if ($selectedApostas) {
+            $user = Auth::user();
+            $apostasToDelete = ApostasModel::whereIn('id', $selectedApostas)
+            ->where('user_id', $user->id)
+            ->get();
+
+            if ($apostasToDelete->count() > 0) {
+                ApostasModel::whereIn('id', $selectedApostas)->delete();
+                return redirect()->route('apostas')->with('success', 'Apostas selecionadas excluídas com sucesso');
+            }
+            
+        } else {
+            return redirect()->route('apostas')->with('error', 'Nenhuma aposta selecionada para exclusão');
+        }
+    }
 }

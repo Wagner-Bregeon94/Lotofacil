@@ -8,28 +8,48 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="card col-sm m-5">
-            <form action="">
+            <form action="{{ route('profile.edit') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="">Nome:</label>
-                    <input type="text" class="form-control" value="{{ Auth::user()->name }}">
+                    <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="form-group">
                     <label for="">Sobrenome:</label>
-                    <input type="text" class="form-control" value="{{ Auth::user()->surname }}">
+                    <input type="text" class="form-control" name="surname" value="{{ Auth::user()->surname }}">
                 </div>
                 <div class="form-group">
                     <label for="">Data de Nascimento:</label>
-                    <input type="date" class="form-control" name="" id="" value="{{ Auth::user()->data_aniversario }}">
+                    <input type="date" class="form-control" name="data_nascimento" value="{{ Auth::user()->data_nascimento }}">
                 </div>
                 <div class="form-group">
                     <label for="">Endereço de Email:</label>
-                    <input type="email" class="form-control" name="" id="" value="{{ Auth::user()->email }}">
+                    <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
                 </div>
-                <button type="submit">Salvar Alterações</button>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmationModal">Salvar Alterações</button>
+
+                <!-- Modal de confirmação -->
+                <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="confirmationModalLabel">Confirmação de Alteração</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        Tem certeza que deseja editar esses dados?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Confirmar Alteração</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
+<script src="{{ asset('js/profiles/edit.js') }}"></script>
 @include('../layout/footer')

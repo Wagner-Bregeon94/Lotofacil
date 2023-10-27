@@ -10,6 +10,7 @@ use App\Http\Controllers\Apostas\ApostasController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Profiles\DeleteController;
 use App\Http\Controllers\Profiles\ShowController; 
 
 Route::get('/', [
@@ -30,11 +31,15 @@ Route::get('/sorteador', [
 
 Route::get('/apostas', [
     ApostasController::class, 'apostas'
-])->name('apostas');
+])->name('apostas')->middleware('auth');
 
 Route::post('/apostas/salvar', [
     ApostasController::class, 'salvarAposta'
-])->name('apostas.salvar');
+])->name('apostas.salvar')->middleware('auth');
+
+Route::delete('/apostas/delete',[
+    ApostasController::class, 'deleteSelected'
+])->name('apostas.delete')->middleware('auth');
 
 Route::get('/register', [
     RegisterController::class, 'showRegistrationForm'
@@ -58,8 +63,24 @@ Route::post('/logout', [
 
 Route::get('/show', [
     ShowController::class, 'show'
-])->name('show');
+])->name('profile.show')->middleware('auth');
 
-Route::get('/show/edit', [
-    ShowController::class, 'edit'
-])->name('show.edit');
+Route::get('/profile/edit', [
+    ShowController::class, 'showEditForm'
+])->name('profile.edit')->middleware('auth');
+
+Route::post('/profile/edit', [
+    ShowController::class, 'processEditForm'
+]);
+
+Route::get('/change/password', [
+    ShowController::class, 'showChangePassword'
+])->name('change.password')->middleware('auth');
+
+Route::post('/change/password', [
+    ShowController::class, 'changePassword'
+])->name('change.password.submit');
+
+Route::delete('/profile/delete/{id}', [
+    DeleteController::class, 'destroy'
+])->name('profile.delete')->middleware('auth');

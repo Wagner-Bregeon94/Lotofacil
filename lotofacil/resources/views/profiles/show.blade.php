@@ -14,9 +14,13 @@
             <div class="form-control"><strong>Endereço de Email:</strong> {{ Auth::user()->email }}</div>
             <hr>
             <div class="teste">
-                <a href="{{ route('show.edit') }}">Editar Conta</a>
-                <a href="#">Alterar Senha</a>
-                <a href="#">Excluir Conta</a>
+                <a href="{{ route('profile.edit') }}">Editar Conta</a>
+                <a href="{{ route('change.password') }}">Alterar Senha</a>
+                <form action="{{ route('profile.delete', ['id' => $user->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Excluir Conta</button>
+                </form>
             </div>
         </div>
     </div>
