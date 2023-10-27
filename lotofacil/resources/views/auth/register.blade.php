@@ -10,30 +10,47 @@
     <div class="card col-sm m-5">
       <form action="{{ route('auth.register') }}" method="POST">
         @csrf
-        @if(session('success'))
-        <div class="alert alert-success">
-          {{ session('success') }}
-        </div>
-        @endif
         <div class="form-group">
           <label for="exampleInputNome">Nome</label>
-          <input type="text" class="form-control" id="exampleInputNome" placeholder="Digite seu nome" name="name">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputNome" placeholder="Digite seu nome" name="name" value="{{ old('name') }}">
+          @error('name')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputSobrenome">Sobrenome</label>
-          <input type="text" class="form-control" id="exampleInputSobrenome" placeholder="Digite seu sobrenome" name="surname">
+          <input type="text" class="form-control @error('surname') is-invalid @enderror" id="exampleInputSobrenome" placeholder="Digite seu sobrenome" name="surname" value="{{ old('surname') }}">
+          @error('surname')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputDataNascimento">Data de nascimento</label>
-          <input type="date" class="form-control" id="exampleInputDataNascimento" name="data_nascimento">
+          <input type="date" class="form-control @error('data_nascimento') is-invalid @enderror" id="exampleInputDataNascimento" name="data_nascimento" value="{{ old('data_nascimento') }}">
+          @error('data_nascimento')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Endereço de email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email" name="email">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email" name="email" value="{{ old('email') }}">
+          @error('email')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputSenha">Senha</label>
-          <input type="password" class="form-control" id="exampleInputSenha" placeholder="Digite sua senha" name="password">
+          <input type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputSenha" placeholder="Digite sua senha" name="password" value="{{ old('password') }}">
+          @error('password')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="exampleInputConfirmSenha">Confirme a senha</label>
+          <input type="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputConfirmSenha" placeholder="Confirme sua senha" name="password_confirmation" value="{{ old('password') }}">
+          @error('password')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>

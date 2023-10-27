@@ -1,4 +1,5 @@
 @include('../layout/header')
+<link rel="stylesheet" href="{{ asset('css/profile/changePassword.css') }}">
 
 <div class="page-header">
     <h2>Alterar Senha</h2>
@@ -11,18 +12,18 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="current_password">Senha Atual</label>
-                    <input type="password" class="form-control" name="current_password" id="current_password">
+                    <label for="current_password">Senha Atual:</label>
+                    <input type="password" placeholder="Digite sua senha atual" class="form-control" name="current_password" id="current_password">
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Nova Senha</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <label for="password">Nova Senha:</label>
+                    <input type="password" placeholder="Digite sua nova senha" class="form-control" name="password" id="password">
                 </div>
 
                 <div class="form-group">
-                    <label for="password_confirmation">Confirmar Nova Senha</label>
-                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
+                    <label for="password_confirmation">Confirmar Nova Senha:</label>
+                    <input type="password" placeholder="Confirme sua nova senha" class="form-control" name="password_confirmation" id="password_confirmation">
                 </div>
                 <button type="submit" class="btn btn-primary">Alterar Senha</button>
             </form>
