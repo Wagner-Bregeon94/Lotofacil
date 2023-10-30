@@ -52,7 +52,10 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <hr>
+        <div class="user-actions">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
       </form>
     </div>
   </div>

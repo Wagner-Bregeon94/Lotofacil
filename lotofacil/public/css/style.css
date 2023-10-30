@@ -13,6 +13,7 @@ div.modal-footer{
 
 .container-fluid {
     background-color: rgb(228, 52, 228);
+    height: 75px;
 } 
 
 .carousel-item {
@@ -22,15 +23,18 @@ div.modal-footer{
 .a-carousel{
     background-color: white;
     color: black;
+    border-radius: 10px;
 }
 
 .p-carousel {
     background-color: rgb(255, 255, 255);
     color: black;
+    border-radius: 10px;
 }
 
 .div-footer {
     background-color:  rgb(228, 52, 228);
+    margin-top: 10px;
 }
 
 p.blockquote-footer {
@@ -49,4 +53,8 @@ p.blockquote-footer {
     padding: 5px 10px;
     background-color: #f0f0f0;
     border: 3px solid #ccc;
+}
+
+.container {
+    padding: 20px;
 }

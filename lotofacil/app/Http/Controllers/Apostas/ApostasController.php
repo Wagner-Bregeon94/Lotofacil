@@ -69,11 +69,11 @@ class ApostasController extends Controller{
 
             if ($apostasToDelete->count() > 0) {
                 ApostasModel::whereIn('id', $selectedApostas)->delete();
-                return redirect()->route('apostas')->with('success', 'Apostas selecionadas excluídas com sucesso');
+                return redirect()->route('apostas')->with('success', 'Apostas selecionadas excluídas com sucesso!');
             }
             
         } else {
-            return redirect()->route('apostas')->with('error', 'Nenhuma aposta selecionada para exclusão');
+            return redirect()->route('apostas')->with('error', 'Nenhuma aposta selecionada para exclusão.');
         }
     }
 }

@@ -81,6 +81,10 @@ Route::post('/change/password', [
     ShowController::class, 'changePassword'
 ])->name('change.password.submit');
 
+Route::get('/delete/account', [
+    DeleteController::class, 'deleteAccount'
+])->name('delete.account')->middleware('auth');
+
 Route::delete('/profile/delete/{id}', [
     DeleteController::class, 'destroy'
 ])->name('profile.delete')->middleware('auth');

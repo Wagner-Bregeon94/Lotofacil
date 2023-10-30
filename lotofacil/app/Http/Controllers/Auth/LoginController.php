@@ -22,11 +22,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('success', 'Login realizado com sucesso!');
         }
  
         return back()->withErrors([
-            'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
+            'email' => 'Email ou senha estão incorretos.',
         ])->onlyInput('email');
     }
 

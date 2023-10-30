@@ -38,7 +38,7 @@
         @endforeach  
       </tbody>
     </table>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal">Excluir Selecionados</button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationModal"><i class="fas fa-trash"></i> Excluir Selecionados</button>
     
     @if (session('success'))
     <div class="alert alert-success">

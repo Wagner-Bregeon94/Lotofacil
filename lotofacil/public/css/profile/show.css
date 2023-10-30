@@ -1,15 +1,14 @@
-div.card{
+div.card {
     background-color:rgb(226, 225, 225);
+    height: 310px;
 }
 
-.form-control{
+.form-control {
     margin-top: 15px;
 }
 
-div.teste{
+div.user-actions {
     display: flex;
-    justify-content: center;
-    height: 30px;
     margin: auto;
-    gap: 350px;
+    gap: 290px;
 }

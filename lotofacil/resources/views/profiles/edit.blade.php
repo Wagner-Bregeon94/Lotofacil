@@ -26,30 +26,49 @@
                     <label for="">Endereço de Email:</label>
                     <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
                 </div>
-                <button type="button" data-bs-toggle="modal" data-bs-target="#confirmationModal">Salvar Alterações</button>
-
+                <hr>
+                <div class="user-actions">
+                    <a href="{{ route('profile.show') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left fa-1x"></i> Voltar
+                    </a> 
+                    <button type="button" class="btn btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#confirmationModal">Salvar Alterações</button>
+                </div>
                 <!-- Modal de confirmação -->
                 <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="confirmationModalLabel">Confirmação de Alteração</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmationModalLabel">Confirmação de Alteração</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                            Tem certeza que deseja editar esses dados?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Confirmar Alteração</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                        Tem certeza que deseja editar esses dados?
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-danger">Confirmar Alteração</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
+                <!-- Fim do modal -->
             </form>
         </div>
     </div>
 </div>
+
+@if (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <script src="{{ asset('js/profiles/edit.js') }}"></script>
 @include('../layout/footer')

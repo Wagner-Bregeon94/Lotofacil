@@ -28,11 +28,22 @@ class ShowController extends Controller {
         ]);
     
         $user = Auth::user();
-        $user->name = $request->input('name');
-        $user->surname = $request->input('surname');
-        $user->data_nascimento = $request->input('data_nascimento');
-        $user->email = $request->input('email');
-        $user->save();
+        $newName = $request->input('name');
+        $newSurname = $request->input('surname');
+        $newDataNascimento = $request->input('data_nascimento');
+        $newEmail = $request->input('email');
+
+        if ($user->name != $newName || $user->surname != $newSurname || $user->data_nascimento != $newDataNascimento || $user->email != $newEmail) {
+            $user->name = $request->input('name');
+            $user->surname = $request->input('surname');
+            $user->data_nascimento = $request->input('data_nascimento');
+            $user->email = $request->input('email');
+            $user->save();
+            return redirect()->route('profile.show')->with('success', 'Alteração feita com sucesso!');
+        } else {
+            return back()->with('error', 'Nenhuma alteração foi feita.');
+        }
+        
     
         return redirect()->route('profile.show');
     }
