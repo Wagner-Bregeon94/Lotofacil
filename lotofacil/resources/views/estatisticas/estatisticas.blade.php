@@ -4,6 +4,6 @@
   <h2>Estatísticas</h2>
 </div>
 <div class="page-body">
-    
+
 </div>
 @include('../layout/footer')

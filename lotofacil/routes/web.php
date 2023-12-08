@@ -85,6 +85,6 @@ Route::get('/delete/account', [
     DeleteController::class, 'deleteAccount'
 ])->name('delete.account')->middleware('auth');
 
-Route::delete('/profile/delete/{id}', [
+Route::delete('/profile/delete', [
     DeleteController::class, 'destroy'
 ])->name('profile.delete')->middleware('auth');

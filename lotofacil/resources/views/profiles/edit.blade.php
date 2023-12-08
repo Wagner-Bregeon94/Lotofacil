@@ -5,6 +5,18 @@
     <h2>Editar Conta</h2>
 </div>
 
+@if (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="card col-sm m-5">
@@ -12,26 +24,26 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Nome:</label>
-                    <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
+                    <input type="text" class="form-control" name="name" id="name" value="{{ Auth::user()->name }}">
                 </div>
                 <div class="form-group">
                     <label for="">Sobrenome:</label>
-                    <input type="text" class="form-control" name="surname" value="{{ Auth::user()->surname }}">
+                    <input type="text" class="form-control" name="surname" id="surname" value="{{ Auth::user()->surname }}">
                 </div>
                 <div class="form-group">
                     <label for="">Data de Nascimento:</label>
-                    <input type="date" class="form-control" name="data_nascimento" value="{{ Auth::user()->data_nascimento }}">
+                    <input type="date" class="form-control" name="data_nascimento" id="data_nascimento" value="{{ Auth::user()->data_nascimento }}">
                 </div>
                 <div class="form-group">
                     <label for="">Endereço de Email:</label>
-                    <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
+                    <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->email }}">
                 </div>
                 <hr>
                 <div class="user-actions">
                     <a href="{{ route('profile.show') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left fa-1x"></i> Voltar
                     </a> 
-                    <button type="button" class="btn btn-primary edit-button" data-bs-toggle="modal" data-bs-target="#confirmationModal">Salvar Alterações</button>
+                    <button type="button" class="btn btn-primary edit-button" id="openEditModalButton" onclick="exibirModalDeConfirmacao()">Salvar Alterações</button>
                 </div>
                 <!-- Modal de confirmação -->
                 <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
@@ -57,18 +69,6 @@
         </div>
     </div>
 </div>
-
-@if (session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
-@endif
-
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
 
 <script src="{{ asset('js/profiles/edit.js') }}"></script>
 @include('../layout/footer')

@@ -15,7 +15,7 @@ class DeleteController extends Controller
         return view('profiles.delete', compact('user'));
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request) {
         $user = Auth::user();
 
         if (Hash::check($request->current_password, $user->password)) {

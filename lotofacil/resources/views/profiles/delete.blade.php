@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="card col-sm m-5">
-            <form action="{{ route('profile.delete', ['id' => $user->id]) }}" method="POST">
+            <form action="{{ route('profile.delete') }}" method="POST">
                 @csrf
                 @method('DELETE')
 

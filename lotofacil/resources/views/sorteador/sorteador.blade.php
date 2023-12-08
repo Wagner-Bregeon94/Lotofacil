@@ -7,15 +7,16 @@
 
 <div class="page-body">
   <div class="select-options">
-    <label for="selectSorteio">Sortear meu jogo com:</label>
-    <select id="selectSorteio">
-      <option value="15">15 números</option>
-      <option value="16">16 números</option>
-      <option value="17">17 números</option>
-      <option value="18">18 números</option>
-      <option value="19">19 números</option>
-      <option value="20">20 números</option>
-    </select>
+    <label for="selectSorteio">Sortear meu jogo com:
+      <select class="btn btn-light" id="selectSorteio">
+        <option value="15">15 números</option>
+        <option value="16">16 números</option>
+        <option value="17">17 números</option>
+        <option value="18">18 números</option>
+        <option value="19">19 números</option>
+        <option value="20">20 números</option>
+      </select>
+    </label>
   </div>
   <div class="side-by-side">
     <div class="table-sorteador" id="sorteador"></div>
@@ -59,7 +60,7 @@
     </div>
   </div>
   <div class="buttons">
-    <button class="button-sorteador" id="updateButton">Atualizar Números</button>
+    <button type="button" class="btn btn-secondary" id="updateButton">Atualizar Números</button>
     <form id="apostaForm" action="{{ route('apostas.salvar') }}" method="POST">
       @csrf
       <input type="hidden" id="numerosSorteadosInput" name="numeros_sorteados" value="">
@@ -68,7 +69,7 @@
       <input type="hidden" id="imparesInput" name="impares" value="">
       <input type="hidden" id="paresInput" name="pares" value="">
       <input type="hidden" id="primosInput" name="primos" value="">
-      <button type="submit" id="saveButton" class="button-save">Salvar Aposta</button>
+      <button type="submit" id="saveButton" class="btn btn-primary">Salvar Aposta</button>
     </form>
   </div>
 </div>

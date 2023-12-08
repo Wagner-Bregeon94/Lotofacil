@@ -8,6 +8,7 @@
     flex-direction: column; /* Coloca os elementos em uma coluna */
     align-items: center; /* Centraliza horizontalmente os elementos */
     text-align: center; /* Centraliza o texto */
+    padding: 10px;
 }
 
 .select-options{
@@ -15,10 +16,11 @@
     justify-content: center; 
     border: 1px solid #ccc;
     border-radius: 5px;
-    height: 30px;
+    height: 45px;
     width: 660px;
     margin: auto;
     background-color: rgb(228, 52, 228);
+    padding: 3px;
 }
 
 .row {
@@ -68,11 +70,12 @@ div.buttons {
     justify-content: center;
     border: 1px solid #ccc;
     border-radius: 5px;
-    height: 30px;
+    height: 50px;
     width: 660px;
     margin: auto;
     background-color: rgb(228, 52, 228);
     gap: 210px;
+    padding: 5px;
 }
 
 tr.title{
@@ -80,4 +83,6 @@ tr.title{
     height: 30px;
 }
 
-
+.btn {
+    
+}

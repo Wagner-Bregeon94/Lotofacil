@@ -22,7 +22,7 @@
         <div class="card col-sm m-5">
             <div class="form-control"><strong>Nome:</strong> {{ Auth::user()->name }}</div>
             <div class="form-control"><strong>Sobrenome:</strong> {{ Auth::user()->surname }}</div>
-            <div class="form-control"><strong>Data de Nascimento:</strong> {{ Auth::user()->data_nascimento }}</div>
+            <div class="form-control"><strong>Data de Nascimento:</strong> {{ date('d/m/Y', strtotime( Auth::user()->data_nascimento)) }}</div>
             <div class="form-control"><strong>Endereço de Email:</strong> {{ Auth::user()->email }}</div>
             <hr>
             <div class="user-actions">
